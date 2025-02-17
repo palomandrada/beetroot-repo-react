@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <div className='container'>
+        <h1>Movie Finder</h1>
         <Home/>
         <SearchInput setMovies={setMovies}/>
         <Grid movies={movies} />
