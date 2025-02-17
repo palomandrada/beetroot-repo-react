@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import logo from './logo.svg'; //this is the image. Is saved as a variable to be used. 
 import './App.css';
+import Home from './components/Home';
+import SearchInput from './components/SearchInput';
+import Grid from './components/Grid';
+import { useState } from 'react';
+
 
 function App() {
+
+  const [movies, setMovies] = useState ([]);
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container'>
+        <Home/>
+        <SearchInput setMovies={setMovies}/>
+        <Grid movies={movies} />
+      </div>
     </div>
   );
 }
