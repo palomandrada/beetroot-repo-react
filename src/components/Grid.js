@@ -10,7 +10,7 @@ export default function Grid (props) {
                     return (
                         <div className='col'>
                             <div className='card shadow-sm'>
-                                <img src={`https://image.tmdv.org/t/p/w500${el.poster_path}`} className='bd-placeholder-img card-img-top'/>
+                                <img src={`https://image.tmdb.org/t/p/w500${el.poster_path}`} className='bd-placeholder-img card-img-top' alt={el.title}/>
                                 <div>
                                     <h2>{el.title}</h2>
                                     <p className='card-text'>{el.overview}</p>

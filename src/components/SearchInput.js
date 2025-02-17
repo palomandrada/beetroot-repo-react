@@ -37,7 +37,7 @@ export default function SearchInput (props) {
             <button onClick={searchHundler} className='btn btn-outline-secondary' type='button'>Search</button>
         </div>
         <div className='Search-result'>
-            <p>Looking for:{movieName}</p>
+            <p>Looking for: {movieName}</p>
         </div>
     </div> 
 
