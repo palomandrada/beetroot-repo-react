@@ -1,12 +1,11 @@
-import logo from './logo.svg'; //this is the image. Is saved as a variable to be used. 
-import './App.css';
-import Home from './components/Home';
-import SearchInput from './components/SearchInput';
-import Grid from './components/Grid';
+import './MovieFinder.css';
+import Home from './Home';
+import SearchInput from './SearchInput';
+import Grid from './Grid';
 import { useState } from 'react';
 
 
-function App() {
+function MovieFinder() {
 
   const [movies, setMovies] = useState ([]);
 
@@ -24,4 +23,4 @@ function App() {
 }
 
 
-export default App;
+export default MovieFinder;

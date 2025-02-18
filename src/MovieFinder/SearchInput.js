@@ -20,7 +20,7 @@ export default function SearchInput (props) {
         setMovieName (e.target.value);
     }
 
-    function searchHundler (){
+    function searchHandler (){
         fetch( BASE_SEARCH_URL + '?query=' + movieName, options)
             .then(res => {
                 return res.json()
@@ -32,9 +32,10 @@ export default function SearchInput (props) {
 
     return (
      <div className='container search'>  
-        <div className="input-group mb-3">
-            <input onChange={changeHandler} type="text" className="form-control" placeholder="Movie name"/>
-            <button onClick={searchHundler} className='btn btn-outline-secondary' type='button'>Search</button>
+        <div className="input-group mb-3"> 
+            {/* to make the OnSubmit work it needs to be in a form */}
+            <input onSubmit={searchHandler} onChange={changeHandler} type="text" className="form-control" placeholder="Movie name"/>
+            <button onClick={searchHandler} className='btn btn-outline-secondary' type='button'>Search</button>
         </div>
         <div className='Search-result'>
             <p>Looking for: {movieName}</p>
