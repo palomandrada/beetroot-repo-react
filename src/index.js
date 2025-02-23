@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import MovieFinder from './MovieFinder/MovieFinder';
 import Punishment from './Punishment/MinCalculator';
+import ImageGallery from './ImageGallery/ImageGallery';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,7 +13,8 @@ root.render(
     <hr></hr>
     <Punishment/>
     <hr></hr>
-  </React.StrictMode>
+    <ImageGallery/>
+  </React.StrictMode> 
 );
 
 // If you want to start measuring performance in your app, pass a function
