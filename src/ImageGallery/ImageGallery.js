@@ -25,7 +25,8 @@ class ImageGallery extends Component { //create a component with class stlye
   fetchImages = async () => {
     try {
       const response = await fetch(
-        "https://api.unsplash.com/photos/random?count=10&client_id=jk1zs7Or6uA-AbnUaC4w6SQSataZd5RB3AKtOfMp_70"
+        "https://api.unsplash.com/photos/random?count=12&client_id=jk1zs7Or6uA-AbnUaC4w6SQSataZd5RB3AKtOfMp_70"
+        //count=12 is 12 ramdom images
       );
 
       if (!response.ok) {
@@ -48,12 +49,8 @@ class ImageGallery extends Component { //create a component with class stlye
     return (
       <div className="container text-center py-4">
         <h2 className="mb-4">Image Generator</h2>
-        <button 
-          onClick={this.fetchImages} 
-          className="btn btn-primary mb-4" 
-        >
-          Load New Images
-        </button>
+        <button onClick={this.fetchImages} className="btn btn-dark mb-4">Generate New Images</button>
+        {/* btn-dark is black */}
 
         {this.state.images.length === 0 ? (
           <p className="text-muted">No images loaded yet.</p>
