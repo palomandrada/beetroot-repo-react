@@ -13,7 +13,7 @@ import "./ImageGallery.css"; //Masonry layout
 class ImageGallery extends Component { //create a component with class stlye
   constructor(props) {
     super(props);
-    this.state = { //State is like a memory box that stores data inside this component.
+    this.state = { //State is like a memory box that stores data inside this component. Using an empty array ([]) prevents errors and allows us to update the gallery when images arrive.
       images: [],//empty array to hold the list of images from Unsplash
     };
   }
