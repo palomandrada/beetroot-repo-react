@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"; // from library 
 import LightGallery from "lightgallery/react";
 import "lightgallery/css/lightgallery-bundle.css";
 import "lightgallery/css/lg-thumbnail.css";
@@ -8,13 +8,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgFullscreen from "lightgallery/plugins/fullscreen";
 import lgZoom from "lightgallery/plugins/zoom";
-import "./ImageGallery.css"; // Import CSS for Masonry layout
+import "./ImageGallery.css"; //Masonry layout
 
-class ImageGallery extends Component {
+class ImageGallery extends Component { //create a component with class stlye
   constructor(props) {
     super(props);
-    this.state = {
-      images: [],
+    this.state = { //State is like a memory box that stores data inside this component.
+      images: [],//empty array to hold the list of images from Unsplash
     };
   }
 
@@ -39,7 +39,7 @@ class ImageGallery extends Component {
         this.setState({ images: [] });
       }
     } catch (error) {
-      console.error("Error fetching images:", error);
+      console.error("Error fetching images:", error); //error message
       this.setState({ images: [] });
     }
   };
@@ -48,9 +48,9 @@ class ImageGallery extends Component {
     return (
       <div className="container text-center py-4">
         <h2 className="mb-4">Image Generator</h2>
-        <button
-          onClick={this.fetchImages}
-          className="btn btn-primary mb-4"
+        <button 
+          onClick={this.fetchImages} 
+          className="btn btn-primary mb-4" 
         >
           Load New Images
         </button>
