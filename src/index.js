@@ -4,18 +4,32 @@ import './index.css';
 import MovieFinder from './MovieFinder/MovieFinder';
 import Punishment from './Punishment/MinCalculator';
 import ImageGallery from './ImageGallery/ImageGallery';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Blog from "./Blog/Blog";
 import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <MovieFinder />
-    <hr></hr>
-    <Punishment/>
-    <hr></hr>
-    <ImageGallery/>
-  </React.StrictMode> 
+    <Router>
+      <div className="container">
+        <MovieFinder />
+        <hr />
+        <Punishment />
+        <hr />
+        <ImageGallery />
+        <hr />
+        
+        {/* Blog Routes */}
+        <Routes>
+          <Route path="/blog/*" element={<Blog />} />
+        </Routes>
+      </div>
+    </Router>
+  </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
