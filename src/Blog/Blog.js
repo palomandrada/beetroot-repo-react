@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Fetch Blog Posts from API
-const BlogPage = () => {
+export const BlogPage = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const BlogPage = () => {
 };
 
 // Single Post View
-const SinglePost = () => {
+export const SinglePost = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
 
@@ -50,20 +50,3 @@ const SinglePost = () => {
     </div>
   );
 };
-
-// Blog Component
-const Blog = () => {
-  return (
-    <div className="container">
-      <Routes>
-        {/* Default blog list route */}
-        <Route index element={<BlogPage />} />
-        {/* Single post route */}
-        <Route path=":postId" element={<SinglePost />} />
-      </Routes>
-    </div>
-  );
-};
-
-export default Blog;
-
