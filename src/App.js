@@ -13,7 +13,7 @@ export default function App() {
             {/* Navbar */}
             <nav className="navbar navbar-dark bg-dark fixed-top px-3">
                 <div className="container-fluid">
-                    <Link to="/movies" className="navbar-brand fw-bold">My Homework</Link>
+                    <Link to="/" className="navbar-brand fw-bold">My Homework</Link>
                     <div>
                         <ul className="navbar-nav d-flex flex-row gap-4">
                             <li className="nav-item">
@@ -35,7 +35,7 @@ export default function App() {
 
             {/* Routes */}
             <Routes>
-                <Route path="/movies" element={<MovieFinder />} />
+                <Route path="/" element={<MovieFinder />} />
                 <Route path="/punishment" element={<Punishment />} />
                 <Route path="/gallery" element={<ImageGallery />} />
 
