@@ -68,3 +68,10 @@
     object-fit: cover;
   }
   
+  /* Popular recipes title */
+  .recipe-results h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffcc00;
+  }
+  
