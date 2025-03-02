@@ -1,48 +1,49 @@
-import { Routes, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import NavigationBar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
+import { fetchRecipes } from "./api/recipes";
+import { Card, Container, Row, Col } from "react-bootstrap";
+import "./styles.css";
 
-// Pages
-import MovieFinder from './MovieFinder/MovieFinder';
-import Punishment from './Punishment/MinCalculator';
-import ImageGallery from './ImageGallery/ImageGallery';
-import { BlogPage, SinglePost } from "./Blog/Blog";
+const App = () => {
+  const [recipes, setRecipes] = useState([]);
 
-export default function App() {
-    return (
-        <div className="container" style={{ paddingTop: "70px" }}>
-            {/* Navbar */}
-            <nav className="navbar navbar-dark bg-dark fixed-top px-3">
-                <div className="container-fluid">
-                    <Link to="/" className="navbar-brand fw-bold">My Homework</Link>
-                    <div>
-                        <ul className="navbar-nav d-flex flex-row gap-4">
-                            <li className="nav-item">
-                                <Link to="/movies" className="nav-link text-white">Movie Search</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/punishment" className="nav-link text-white">Image Generator</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/gallery" className="nav-link text-white">Gallery</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/blog" className="nav-link text-white">Blog</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+  const handleSearch = async (query) => {
+    const formattedQuery = query.replace(/\s+/g, ""); // Remove spaces
+    const fetchedRecipes = await fetchRecipes(formattedQuery);
+    setRecipes(fetchedRecipes);
+  };
 
-            {/* Routes */}
-            <Routes>
-                <Route path="/" element={<MovieFinder />} />
-                <Route path="/punishment" element={<Punishment />} />
-                <Route path="/gallery" element={<ImageGallery />} />
+  return (
+    <div className="app-container">
+      <NavigationBar />
+      <div className="search-container">
+        <h1 className="text-white">Find Your Perfect Recipe</h1>
+        <SearchBar onSearch={handleSearch} />
+      </div>
 
-                {/* Blog Routes */}
-                <Route path="/blog" element={<BlogPage />} />
-                <Route path="/blog/:postId" element={<SinglePost />} />
-            </Routes>
-        </div>
-    );
-}
+      {/* Display Recipes */}
+      <Container className="recipe-results">
+        <Row className="g-4">
+          {recipes.length > 0 ? (
+            recipes.map((recipe) => (
+              <Col key={recipe.id} xs={12} sm={6} md={4} lg={3}>
+                <Card className="recipe-card">
+                  <Card.Img variant="top" src={recipe.image} alt={recipe.title} />
+                  <Card.Body>
+                    <Card.Title>{recipe.title}</Card.Title>
+                    <Card.Text>Click to see details</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <p className="text-white mt-3 text-center">No recipes found.</p>
+          )}
+        </Row>
+      </Container>
+    </div>
+  );
+};
+
+export default App;
